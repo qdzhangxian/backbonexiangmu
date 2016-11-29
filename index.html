@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width">
+	<title>图片网</title>
+</head>
+<body>
+<div id="app" style="display: none;">
+	<section class="list">
+			<div class="login">旅图</div>
+		<div class="search">
+			<input type="text" placeholder="搜素你喜欢的图片">
+			<span>搜一搜</span>
+		</div>
+	
+		<ul class="type clearfix">
+			<li data-id="0"><img src="img/01.jpg"  class="0"><span>摄影</span></li>
+			<li data-id="1"><img src="img/02.jpg"  class="1"><span>明星</span></li>
+			<li data-id="2"><img src="img/03.jpg"  class="2"><span>壁纸</span></li>
+			<li data-id="3"><img src="img/04.jpg"  class="3"><span>宠物</span></li>
+			<li data-id="4"><img src="img/05.png"  class="4"><span>动漫</span></li>
+			<li data-id="5"><img src="img/06.jpg"  class="5"><span>风景</span></li>
+			<li data-id="6"><img src="img/07.jpg"  class="6"><span>头像</span></li>
+			<li data-id="7"><img src="img/08.jpg"  class="7"><span>人物</span></li>
+		</ul>
+		<div class="image-container">
+			<div class="left-container">
+			</div>
+			<div class="right-container">
+			</div>
+		</div>
+		<span class="go-top goindex" id="goindex">回到<br>首页</span>
+		<span class="go-top">返回<br>顶部</span>
+	</section>
+	<section class="layer"></section>
+	
+</div>
+<script type="text/template" id="tpl_layer">
+	<div class="layer-container" style="<%=style%>">
+		<img src="<%=url%>" alt="">
+	</div>
+	<header class="header hide">
+		<div class="go-back">
+			<span class="arrow"><span class="arrow green"></span></span>
+		</div>
+		<h1><%=title%></h1>
+	</header>
+</script>
+<script type="text/javascript" src="static/sea.js"></script>
+<script type="text/javascript" src="static/lib/seajs-css.js"></script>
+<script type="text/javascript" src="static/lib/seajs-preload.js"></script>
+<script type="text/javascript" src="static/lib/zepto.js"></script>
+<script type="text/javascript" src="static/lib/zepto.touch.js"></script>
+<script type="text/javascript" src="static/lib/underscore.js"></script>
+<script type="text/javascript" src="static/lib/backbone.js"></script>
+<script type="text/javascript">
+// 写配置
+seajs.config({
+	// 简化路径书写
+	alias: {
+		layer: 'modules/layer/layer',
+		list: 'modules/list/list',
+		imageModel: 'modules/model/img',
+		imageCollection: 'modules/collection/img'
+	}
+})
+// 引入入口文件
+seajs.use('app', function (app) {
+	// app是一个函数接口，我们直接执行
+	app()
+})
+</script>
+</body>
+</html>
